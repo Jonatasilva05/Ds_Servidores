@@ -14,7 +14,7 @@
         <div class="card1">
             <h2>1. Estamos aprendendo PHP!</h2>
             <section>
-                <p>
+                <p class="phpDiv">
                     <?php
                         echo "Vamos prosseguir aprendendo PHP";
                     ?>
@@ -37,13 +37,17 @@
 
         <div class="card2">
             <section>
-                <p>
+                <p class="phpDiv">
                     <?php
                         echo "Oi, Eu serei visto na sua tela";
                         //Eu não! Sou apenas um comentário.
 
+                        echo "<br>";
+
                         echo "Oi, Eu também serei visto por você";
                         #Já eu não serei!
+
+                        echo "<br>";
 
                         echo "E eu aqui novamente na sua tela, rs";
                         /*Eu não aparecerei na sua tela novamente pois sou um comentário*/
@@ -61,7 +65,7 @@
 
         <div class="card3">
             <section>
-                <p>
+                <p class="phpDiv">
                     <?php
                         $name = "Guilherme";
                         $age = 20;
@@ -103,7 +107,7 @@
         </section>
 
         <div class="card4">
-            <p>
+            <p class="phpDiv">
                 <?php
                     $a = "mundo!";
                     echo "Olá, $a"; //Olá, mundo!
@@ -126,7 +130,7 @@
 
         <div class="card5">
             <section>
-                <p>
+                <p class="phpDiv">
                     <?php
                         echo "Olá," . "mundo!";
                         //Olá, mundo!
@@ -144,7 +148,7 @@
 
         <div class="card6">
             <section>
-                <p>
+                <p class="phpDiv">
                     <?php
                         define("PHP", "Linguagem Open - Source");
 
@@ -169,7 +173,7 @@
         </section>
 
         <div class="card7">
-            <p>
+            <p class="phpDiv">
                 <?php
                     $php = array("Zend" => "CERTIFICAÇÃO", 6 => false);
                     echo $php["Zend"]; //CERTIFICAÇÃO
@@ -181,9 +185,308 @@
             </p>
         </div>
 
+        <section>
+            <p>
+                Note que nossa primeira chave se chama Zend, e a outra chama-se 6, mas quanto a nomeação de chaves de array pode ser tanto string ou um interger.Para o valor pode ser qualquer coisa.
+            </p>
+
+            <h2>Conversão de tipos</h2>
+
+            <p>Os tipos de <span class="spanList">variáveis no PHP</span> são dinâmicos. Para forçarmos os tipos de nossas variáveis ultilizamos uma técnica conhecida como type casting, ou simplesmente troca de tipos. Veja na <span>Listagem 8</span> alguns exemplos</p>
+        </section>
+
+        <div class="card8">
+            <p class="phpDiv">
+                <?php
+                    $var = 100;
+                    $type_casting = (bool) $var;
+                    $type_casting = (int) $var;
+                    $type_casting = (float) $var;
+                    $type_casting = (string) $var;
+                    $type_casting = (array) $var;
+                    echo $type_casting = (bool) $var;
+                ?>
+            </p>
+        </div>
+
+        <section>
+            <p>Veja que transformamos o valor da <span class="echoSpan">$var</span>, que antes era um inteiro, para umm valor booleano.
+            </p>
+            <p>
+                Vamos conhecer agora <span>operadores</span>, que permitem que nós manipulemos o conteúdo de uma ou mais variáveis.
+            </p>
+
+            <h2>Operadores Aritméticos no PHP</h2>
+
+            <p>
+                Podemos ultilizar operadores matemáticos para efetuar cálculos com os valores de variáveis, como mostra a <span>Listagem 9.</span>
+            </p>
+        </section>
+
+        <div class="card9">
+            <p class="phpDiv">
+                <?php
+                    $a = 3;
+                    $b = 3;
+                    $c = $a * $b; //resultado é 9
+                    $d = $a + $b; //resultado é 6
+                    $e = $c - $d; //resultado é 3
+                ?>
+            </p>
+        </div>
+
+        <section>
+            <p>
+                Criamos as variáveis <span class="echoSpan">$a</span> e <span class="echoSpan">$b</span> e a partir delas conseguimos fazer vários cálculos matemáticos.
+            </p>
+
+            <p>
+                Os operadores matemáticos disponíveis em PHP são:
+            </p>
+
+            <ul>
+                <li>Adição:+</li>
+                <li>Subtração:-</li>
+                <li>Multiplicação:*</li>
+                <li>Divisão:/</li>
+                <li>Módulo:%</li>
+            </ul>
+
+            <p>
+                Lembrando que não precisamos especificar os tipos de variáveis no PHP, como nos exemplos a seguir:
+            </p>
+        </section>
+
+        <div class="card10">
+            <p class="phpDiv">
+                <?php
+                    $a = "5"; //string
+                    echo $a + 2; // 7, integer
+                    echo $a + '5 carros'; // 10, integer
+                ?>
+            </p>
+        </div>
+
+        <section>
+            <p>
+                Note que <span class="echoSpan">$a</span> é uma string e quando demos um <span class="echoSpan">echo</span> nela somando com 2, que é um inteiro, o resultado retornado foi 7. Isso demonstra que nossos tipos de variáveis em PHP são sempre dinâmicos. E na linha 4 o PHP reconhece dentro das aspas simples um numeral e com isso executa a operação matemática e exibirá o resultado de 10 do tipo inteiro mas não exibindo a palavra "carros".
+            </p>
+
+            <h2>Operadores de Atribuição no PHP</h2>
+
+            <p>
+                Ultilizamos os operadores de atribuição para definir variáveis e seus valores, além de usá-los juntamente com os operadores matemáticos, como mostra o exemplo da <span>Listagem 10.</span>
+            </p>
+        </section>
+
+        <div class="card11">
+            <p class="phpDiv">
+                <?php
+                    $a = 1; // A variavel $a é igual a 1
+                    $a += 2; // Somamos 2 ao valor da $a;
+                    echo $a;
+                ?>
+            </p>
+        </div>
+
+        <section>
+            <p>
+                O resultado acima é 3, pois somamos 2 ao valor da <span class="echoSpan">$a</span>, que é 1. Na <span>Listagem 11</span> temos mais exemplos.
+            </p>
+        </section>
+
+        <div class="card12">
+            <p class="phpDiv">
+                <?php
+                    $a -= 2;
+                    $a *= 2;
+                    $a /= 2;
+                ?>
+            </p>
+        </div>
+
+        <section>
+            <p>
+                A sintaxe desses operadores é a mesma do exemplo da soma, pois basta dar echo depois de ter declarado a variável com seu respectivo operador.
+            </p>
+
+            <p>
+                Podemos também incrementar ou decrementar variáveis ultilizando os operadores de incrementação, herdados da linguagem C, como nos exemplos da <span>Listagem 12.</span>
+            </p>
+        </section>
+
+        <div class="card13">
+            <p class="phpDiv">
+                <?php
+                    $a = 1;
+                    echo ++$a;
+                    echo $a++;
+                    echo --$a;
+                    echo $a--;
+                ?>
+            </p>
+        </div>
+
+        <section>
+
+            <h2>Operadores Relacionais</h2>
+
+            <p>
+                Esses são usados para comparar valores ou expressões, retornando um valor booleano (true ou false):
+            </p>
+
+            <ul>
+                <li>Igual: ==</li>
+                <li>Idêntico: ===</li>
+                <li>Diferente: != ou <></li>
+                <li>Menor que: <</li>
+                <li>Maior que: ></li>
+                <li>Menor ou Igual: <=</li>
+                <li>Maior ou igual: >=</li>
+            </ul>
+
+            <p>
+                É importante lembrar que == não checa o tipo da variavel, apenas seu valor. Já o <span class="echoSpan">===</span> checa  tanto o valor da variável quanto o seu tipo.
+            </p>
+
+            <h2>Operadores Lógicos</h2>
+
+            <p>
+                Existem também os operadores lógicos para a criação de testes condicionais:
+            </p>
+
+            <ul>
+                <li>$a and $b: enquanto A e B forem verdadeiros</li>
+                <li>$a or $b: enquanto A e B forem verdadeiros</li>
+                <li>$a xor $b: enquanto A e B forem verdadeiros, mas não os dois</li>
+                <li>!$a: verdadeiro se A for falso;</li>
+                <li>$a || $b: enquanto A ou B forem verdadeiros.</li>
+            </ul>
+
+            <h2>Estrutura de Decisão if/else</h2>
+
+            <p>
+                A condição é avaliada para que, caso algo seja verdadeiro, faça isto,senão, faça aquilo, como mostra a <span>Listagem 13.</span>
+            </p>
+        </section>
+
+        <div class="card14">
+            <p class="phpDiv">
+                <?php
+                    $idade = 17;
+
+                    if($idade < 18) {
+                        echo 'Você não pode entrar aqui!';
+                    } else {
+                        echo 'Seja bem - vindo';
+                    }
+                ?>
+            </p>
+        </div>
+
+        <br><br>
+
+        <div class="card15">
+            <p class="phpDiv">
+                <?php
+                    $idade = 21;
+                    $identidade = true;
+
+                    if($idade > 18 && $identidade == true) {
+                        echo 'Seja bem-vindo';
+                    }
+                ?>
+            </p>
+        </div>
+
+        <br><br>
+
+        <div class="card16">
+            <p class="phpDiv">
+                <?php
+                    $nome = 'Till Lindemann';
+
+                    if($nome == 'Richard Kruspe') {
+                        echo 'E ae Richard Kruspe!';
+                    } elseif ($nome == 'Oliver Riedel') {
+                        echo 'E ae Oliver Riedel!';
+                    } elseif ($nome == 'Till Lindemann') {
+                        echo 'E ae Till Lindemann!';
+                    } else {
+                        echo "E ae $nome!";
+                    }
+                ?>
+            </p>
+        </div>
+
+        <br><br>
+
+        <div class="card17">
+            <p class="phpDiv">
+                <?php
+                    $nome = 'Fulano';
+
+                    switch ($nome) {
+                        case 'Fulano':
+                            echo 'E ai Fulano';
+                            break;
+
+                        case 'Sicrano':
+                            echo 'E ai Sicrano';
+                            break;
+
+                        case 'Beltrano':
+                            echo 'E ai Beltrano';
+                            break;
+
+                        default:
+                            echo 'Qual é o seu nome';
+                            break;
+                    }
+
+                    //Resultado é: E ai Fulano!
+                ?>
+            </p>
+        </div>
+
+        <br><br>
+
+        <div class="card18">
+            <p class="phpDiv">
+                <?php
+                    $number1 = 1;
+                    $number2 = 2;
+
+                    if($number1 > $number2) {
+                        $a = 'Numero 2 é maior que número 1';
+                    } else {
+                        $b = 'Numero 2 não é maior que número 1';
+                    }
+
+                    $ternario = ($number2 > $number1) ? 'Numero 2 é maior que número 1' : 'Numero 2 não é maior que número 1';
+
+                    echo $ternario; //Numero 2 é maior que número 1
+                ?>
+            </p>
+        </div>
+
+        <br><br>
+
+        <div class="card19">
+            <p>
+                <?php
+                    $estacao = array('Verao' => 'de 21 de dezembro a 21 de março',
+                    'Outono' => 'de 21 de março a 21 de junho',
+                    'Inverno'=> 'de 21 de junho a 23 de setembro',
+                    'Primavera'=> 'de 23 de setembro a 21 de dezembro');
+                ?>
+            </p>
+        </div>
+
+        <br><br>
 
 
-
+        
 
 
 
