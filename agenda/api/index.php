@@ -14,6 +14,7 @@ $uriParts = explode('/', trim($uri, '/')); // Divide a URI em partes e remove as
 //     $id = $uriParts[3];
 // }
 // echo "$uri";
+//
 $id = 0 ;
 if (isset($_GET['id'])) {
     $id = $_GET['id'];

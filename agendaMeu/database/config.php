@@ -1,7 +1,7 @@
 <?php
 // controla as credencias de acesso ao banco de dados
 $host = 'localhost';
-$db = 'agendafatec';
+$db = 'bdagenda';
 $port = 3306;
 $user = 'root';
 $pass = '';

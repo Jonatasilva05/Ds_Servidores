@@ -113,6 +113,7 @@ function put($conn, $id)
 
 function delete($conn, $id)
 {
+    $data = json_decode(file_get_contents('php://input'), true);
     if (isset($id)) {
         try {
             $stmt = $conn->prepare('DELETE FROM pessoas WHERE id = :id');
@@ -127,11 +128,10 @@ function delete($conn, $id)
     }
 }
 
-// $data = json_decode(file_get_contents('php://input'), true);
-
 function getById($conn, $id)
 {
-    if (isset($cep)) {
+    // $data = json_decode(file_get_contents('php://input'), true);
+    if (isset($id)) {
         try {
             $stmt = $conn->prepare("SELECT * FROM pessoas WHERE id = :id ");
             $stmt->bindParam(':id', $id);

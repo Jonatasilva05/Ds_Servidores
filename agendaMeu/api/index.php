@@ -8,26 +8,16 @@ $uri = $_SERVER['REQUEST_URI'];
 $method = $_SERVER['REQUEST_METHOD'];
 
 $uriParts = explode('/', trim($uri, '/')); // Divide a URI em partes e remove as barras extras
-$id = 0 ;
-// route params - end point = http://localhost/dsi/agenda/pessoas/1
-// para funcionamento correto, necessario configurar arquivo .htacess, indicando a pasta do index.php
-// exemplo do $uriParts com a uri = "http://localhost/dsi/agenda/pessoas/1"
-// 0 - /dsi
-// 1 - /agenda
-// 2 - /pessoas
-// 3 - id
+
 // Verifica se o ID está presente na URL
-if (isset($uriParts[3]) && is_numeric($uriParts[3])) {
-    $id = $uriParts[3];
-}
-//
-// $nelem =  sizeof ($uriParts);
-// echo $nelem;
-// query params - end point = http://localhost/dsi/agenda/pessoas?id=1
-//  Verifica se o ID está presente na URL
-// if (isset($_GET['id'])) {
-//     $id = $_GET['id'];
-// }    
+// if (isset($uriParts[3]) && is_numeric($uriParts[3])) {
+//     $id = $uriParts[3];
+// }
+// echo "$uri";
+$id = 0 ;
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+}    
 
 switch ($method) {
     case ($method == 'GET'):
@@ -41,10 +31,10 @@ switch ($method) {
         post($conn);
         break;
     case ($method == 'PUT'):
-        put($conn, $id);
+        put($conn);
         break;
     case ($method == 'DELETE'):
-        delete($conn, $id);
+        delete($conn);
         break;
     default:
         echo json_encode(['error' => "Verbo informada inexistente .."]);
@@ -86,11 +76,11 @@ function post($conn)
     }
 }
 
-function put($conn, $id)
+function put($conn)
 {
     $data = json_decode(file_get_contents('php://input'), true);
-
-    if (isset($id)) {
+    if (isset($data["id"])) {
+        $id = $data['id'];
         $nome = $data['nome'];
         $telefone = $data['telefone'];
         $observacao = $data['observacao'];
@@ -111,9 +101,11 @@ function put($conn, $id)
     }
 }
 
-function delete($conn, $id)
+function delete($conn)
 {
-    if (isset($id)) {
+    $data = json_decode(file_get_contents('php://input'), true);
+    if (isset($data["id"])) {
+        $id = $data['id'];
         try {
             $stmt = $conn->prepare('DELETE FROM pessoas WHERE id = :id');
             $stmt->bindParam(':id', $id);
@@ -127,11 +119,10 @@ function delete($conn, $id)
     }
 }
 
-// $data = json_decode(file_get_contents('php://input'), true);
-
 function getById($conn, $id)
 {
-    if (isset($cep)) {
+    // $data = json_decode(file_get_contents('php://input'), true);
+    if (isset($id)) {
         try {
             $stmt = $conn->prepare("SELECT * FROM pessoas WHERE id = :id ");
             $stmt->bindParam(':id', $id);
